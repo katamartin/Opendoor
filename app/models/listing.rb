@@ -11,5 +11,7 @@ class Listing < ActiveRecord::Base
     presence: true
   )
 
-  
+  def query(params)
+
+  end
 end
