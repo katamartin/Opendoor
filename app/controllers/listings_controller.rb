@@ -2,8 +2,8 @@ class ListingsController < ApplicationController
   before_filter :set_default_response_format
 
   def index
-    @listings = Listing.all
-    render json: @listings
+    @listings = Listing.query(params)
+    render :index
   end
 
   private
