@@ -11,3 +11,7 @@ compared against the `Listing#column_names`.
 
 It would also be desirable to cache the results of recent queries, so that
 adding additional filters to an old query could run much more quickly.
+
+I used jBuilder to render the results in GeoJSON. The views take an enormous
+amount of time to load compared to ActiveRecord. I believe that it would be
+favorable to instead write the GeoJSON by hand.
