@@ -23,14 +23,17 @@ class Listing < ActiveRecord::Base
   }
 
   def self.query(params)
-    query_params = []
+    where(filters(params))
+  end
+
+  def self.filters(params)
+    search = []
     params.each do |k, v|
-      field = k.split("-")
+      field = k.split("_")
       if COMPARATORS[field.first] && COLUMNS[field.last]
-        query_params << "#{COLUMNS[field.last]} COMPARATORS[field.last] #{v}"
+        search << "#{COLUMNS[field.last]} #{COMPARATORS[field.first]} #{v}"
       end
     end
-    query_params.join(" AND ")
-    where(query_params)
+    search.join(" AND ")
   end
 end
