@@ -12,8 +12,8 @@ class Listing < ActiveRecord::Base
   )
 
   COMPARATORS = {
-    "min" => ">",
-    "max" => "<"
+    "min" => ">=",
+    "max" => "<="
   }
 
   COLUMNS = {
